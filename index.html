@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>conseptos</title>
+</head>
+
+<body>
+    <div id="header">
+        <center>
+            <h1>Conceptos de programacion orientada a objetos</h1>
+        </center>
+
+    </div>
+    <div id="cuerpo">
+        <h3>Asociacion</h3>
+        <p>Es una relacion de dos o más objetos, donde cada objeto es independiente.</p>
+        <p>El siguiente ejemplo aclarara la Asociacion</p>
+        <pre>
+            function Person(name, surname) {
+                this.name = name;
+                this.surname = surname;
+                this.parent = null;
+                }
+                var johnSmith = new Person("John", "Smith");
+                var fredSmith = new Person("Fred", "Smith");
+                fredSmith.parent = johnSmith;
+                
+        </pre>
+        <h3>Agregacion</h3>
+        <p>La Agregacion es una forma especial de asociacion, donde un objeto tiene mayor importancia que otro , usualmente el objeto con mayor importancia determina el tipo de propiedad que un objeto tiene con otro.</p>
+        <p>El siguiente ejemplo demostrara el funcinamiento</p>
+        <pre>
+            var company = {
+                name: "ACME Inc.",
+                employees: []
+               };
+               var johnSmith = new Person("John", "Smith");
+               var marioRossi = new Person("Mario", "Rossi");
+               company.employees.push(johnSmith);
+               company.employees.push(marioRossi);
+               
+        </pre>
+        <h3>Composicion</h3>
+        <p>Es un tipo fuerte de agregacion, donde cada objeto es dependiente.
+        </p>
+        <p>El siguiente ejemplo demostrara el funcinamiento</p>
+        <pre>
+            var person = {name: "John",
+ surname: "Smith",
+ address: {
+ street: "123 Duncannon Street",
+ city: "London",
+ country: "United Kingdom"
+ }};
+
+        </pre>
+        <h3>Encapsulacion</h3>
+        <p>Es la representacion de un objeto(incluidos propiedades y metodos) en una sola entidad.
+        </p>
+        <p>El siguiente ejemplo demostrara el funcinamiento</p>
+        <pre>
+            var company = {
+                name: "ACME Inc.",
+                employees: [],
+                sortEmployeesByName: function() {...}
+               };
+               * Aqui usamos el objeto company que ha sido encapsulado.
+            company.employees = "this is a joke!";
+            company.sortEmployeesByName();
+               
+        </pre>
+        <h3>Herencia</h3>
+        <p>Esta permite que nuevos objetos obtengan propiedades y metodos ya existentes en otros objetos, usualmente se crean objetos especializados a partir de objetos con caracteristicas mas generales.
+        </p>
+        <p>El siguiente ejemplo demostrara el funcinamiento</p>
+        <pre>
+            function Person() {
+                this.name = "";
+                this.surname = "";
+            }
+            function Programmer() {
+                this.knownLanguage = "";
+            }
+            * Aqui se da la herencia al objeto programador que es una persona tambien.
+               Programmer.prototype = new Person();
+               
+               var programmer = new Programmer();
+        </pre>
+        <h3>Polimorfismo</h3>
+        <p>En algunos casos el polimorfismo ayuda a reducir el codigo, pero ¿Que es el polimorfismo?. El polimorfismo es realizar una misma accion, que puede variar en cada objeto.
+        </p>
+        <p>El siguiente ejemplo demostrara el funcinamiento</p>
+        <pre>
+            public int Sum(int x, int y) {
+                return Sum(x, y, 0);
+               }
+               public int Sum(int x, int y, int z) {
+                return x+ y + z;
+               }
+               
+        * En este ejemplo ambas funciones tienen un mismo nombre, pero 
+        su funcion es distinta.
+        </pre>
+
+    </div>
+    <div id="footer">
+
+    </div>
+</body>
+<script src="logica.js"></script>
+
+</html>
