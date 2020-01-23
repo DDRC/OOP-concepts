@@ -105,7 +105,55 @@
         * En este ejemplo ambas funciones tienen un mismo nombre, pero 
         su funcion es distinta.
         </pre>
+        <h3>niveles de privacidad usando cierres</h3>
+        <p>Es necesario tener claro algunos conceptos como el <b>cierre</b> que es la accesibilidad que se tiene cada variable de cada funcion al estar esta activa.
+        </p>
+        <p>
+            el <b>alcance</b> es la capacidad de que tiene un metodo anidado de acceder a otro externo pero no viceversa
+        </p>
+        <p>el ES6 implementa <b>los weakmaps</b>, que son colecciones de pares de valores, que son una clave y un valor, las claves necesariamente deben ser objetos
+        </p>
+        <p>El siguiente ejemplo ilustra los weakmaps</p>
+        <pre>
+            var myMap = new WeakMap();
+            var johnSmith = {name: "John", surname: "Smith"};
+            var marioRossi = {name: "Mario", surname: "Rossi"};
+            myMap.set(johnSmith, "This is John");
+            myMap.set(marioRossi, "This is Mario");
+            console.log(myMap.get(marioRossi));
+        </pre>
+        <p>
+            los getters(adquiridor) son basicamente funciones que devuelven un valor que es asignado a una varible dentro de una clase
+        </p>
+        <p>
+            los setter(definidores) son funciones que definen el valor de una propiedad dentro de una clase. Lo cual permite actualizar los valores de las propiedades en las instancias creadas.
+        </p>
+        <p>el siguiente ejemplo muestra el uso de un getter y un setter</p>
+        <pre>
+            var person = {
+                name: "John",
+                surname: "Smith",
+                get fullName() { return this.name + " " + this.surname; },
+            set fullName(value) {
+                var parts = value.toString().split(" ");
+                this.name = parts[0] || "";
+                this.surname = parts[1] || "";
+                },
+                email: "john.smith@packtpub.com"
+               };
+               
+        </pre>
+        <p>
+            la implementacion seria la siguiente:
+        </p>
+        <pre>
+            console.log(person.fullName); //John Smith
+            person.fullName = "Mario Rossi";
+            console.log(person.name); //Mario
+            console.log(person.surname); //Rossi
+            console.log(person.fullName); //Mario Rossi
 
+        </pre>
     </div>
     <div id="footer">
 
